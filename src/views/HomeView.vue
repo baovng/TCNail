@@ -1,9 +1,13 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+	import TheWelcome from '../components/TheWelcome.vue';
+	import Menu from '../components/Menu.vue';
+	import Footer from '../components/Footer.vue';
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+	<TheWelcome />
+	<Menu />
+	<Footer />
 </template>
+
+<style></style>

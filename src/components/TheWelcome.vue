@@ -1,86 +1,103 @@
-<script setup>
-import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconDocumentation.vue'
-import ToolingIcon from './icons/IconTooling.vue'
-import EcosystemIcon from './icons/IconEcosystem.vue'
-import CommunityIcon from './icons/IconCommunity.vue'
-import SupportIcon from './icons/IconSupport.vue'
-</script>
-
 <template>
-  <WelcomeItem>
-    <template #icon>
-      <DocumentationIcon />
-    </template>
-    <template #heading>Documentation</template>
-
-    Vue’s
-    <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
-    provides you with all information you need to get started.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <ToolingIcon />
-    </template>
-    <template #heading>Tooling</template>
-
-    This project is served and bundled with
-    <a href="https://vitejs.dev/guide/features.html" target="_blank" rel="noopener">Vite</a>. The
-    recommended IDE setup is
-    <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a> +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank" rel="noopener">Volar</a>. If
-    you need to test your components and web pages, check out
-    <a href="https://www.cypress.io/" target="_blank" rel="noopener">Cypress</a> and
-    <a href="https://on.cypress.io/component" target="_blank">Cypress Component Testing</a>.
-
-    <br />
-
-    More instructions are available in <code>README.md</code>.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <EcosystemIcon />
-    </template>
-    <template #heading>Ecosystem</template>
-
-    Get official tools and libraries for your project:
-    <a href="https://pinia.vuejs.org/" target="_blank" rel="noopener">Pinia</a>,
-    <a href="https://router.vuejs.org/" target="_blank" rel="noopener">Vue Router</a>,
-    <a href="https://test-utils.vuejs.org/" target="_blank" rel="noopener">Vue Test Utils</a>, and
-    <a href="https://github.com/vuejs/devtools" target="_blank" rel="noopener">Vue Dev Tools</a>. If
-    you need more resources, we suggest paying
-    <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">Awesome Vue</a>
-    a visit.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <CommunityIcon />
-    </template>
-    <template #heading>Community</template>
-
-    Got stuck? Ask your question on
-    <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Vue Land</a>, our official
-    Discord server, or
-    <a href="https://stackoverflow.com/questions/tagged/vue.js" target="_blank" rel="noopener"
-      >StackOverflow</a
-    >. You should also subscribe to
-    <a href="https://news.vuejs.org" target="_blank" rel="noopener">our mailing list</a> and follow
-    the official
-    <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
-    twitter account for latest news in the Vue world.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <SupportIcon />
-    </template>
-    <template #heading>Support Vue</template>
-
-    As an independent project, Vue relies on community backing for its sustainability. You can help
-    us by
-    <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
-  </WelcomeItem>
+	<div class="container-wrp">
+		<div class="txt-header" :class="{ appear: appear }">
+			Promo
+			<div class="txt-discount">{{ discount }} <span class="percent">10%</span></div>
+		</div>
+		<div class="info" :class="{ appear: appear2 }">
+			T&C NAILS
+			<div class="info-1">book now</div>
+			<div class="info-2"><a :href="'tel:' + 8172223869">(817) 222-3869</a></div>
+		</div>
+	</div>
 </template>
+
+<script>
+	export default {
+		data() {
+			return {
+				discount: 'Cash Discount',
+
+				appear: false,
+				appear2: false,
+			};
+		},
+		mounted() {
+			setTimeout(() => {
+				this.appear = true;
+			}, 300);
+			setTimeout(() => {
+				this.appear2 = true;
+			}, 900);
+		},
+	};
+</script>
+<style>
+	.container-wrp {
+		/* background-color: peachpuff; */
+		position: relative;
+		background-image: url('../assets/background.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		background-position-y: center;
+		width: 100%;
+		height: 100vh;
+		min-height: 450px;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.txt-header {
+		font-family: 'Brittany', sans-serif;
+		font-weight: 500;
+		font-size: 100px;
+		margin-top: -70px;
+		color: #fff;
+		opacity: 0;
+	}
+	.txt-discount {
+		font-family: 'Garet', sans-serif;
+		font-size: 18px;
+		font-weight: bold;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		margin-top: -60px;
+		margin-left: 60px;
+	}
+	.percent {
+		font-size: 30px;
+		font-weight: bold;
+	}
+	.info {
+		position: absolute;
+		bottom: 6%;
+		font-family: 'Commodus-Regular', sans-serif;
+		font-size: 35px;
+		letter-spacing: 1px;
+		color: black;
+		opacity: 0;
+	}
+	.info-1,
+	.info-2 {
+		font-family: 'Garet', sans-serif;
+		font-size: 15px;
+		text-transform: uppercase;
+	}
+	.info-2 {
+		background-color: #8a4f31;
+		color: #fff;
+		padding: 5px 0px;
+		margin-top: 5px;
+	}
+	a {
+		text-decoration: none;
+		color: #fff;
+	}
+	.appear {
+		opacity: 1;
+		transition: opacity 1s ease-in-out;
+	}
+</style>

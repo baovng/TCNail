@@ -21,6 +21,7 @@
 	.footer-1 {
 		width: 100%;
 		height: 35vh;
+		min-height: 200px;
 		background-image: url('../assets/background.png');
 		/* background-image: url('../assets/footer.PNG'); */
 		background-position: bottom;

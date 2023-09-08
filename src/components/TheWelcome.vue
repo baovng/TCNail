@@ -25,10 +25,10 @@
 		mounted() {
 			setTimeout(() => {
 				this.appear = true;
-			}, 300);
+			}, 450);
 			setTimeout(() => {
 				this.appear2 = true;
-			}, 900);
+			}, 1000);
 		},
 	};
 </script>
